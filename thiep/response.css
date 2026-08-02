@@ -35,9 +35,13 @@
     }
 
     .lb-told1,
-    .lb-told3,
+
     .lb-rec-time {
         font-size: calc((16 / 500) * 100vw);
+    }
+
+    .lb-told3 {
+        font-size: calc((24 / 500) * 100vw);
     }
 
     .lb-told4 {
@@ -81,7 +85,7 @@
     }
 
     .rsvp .content .rsvp-form .header .subtitle {
-        font-size: calc((16 / 500) * 100vw);
+        font-size: calc((14 / 500) * 100vw);
     }
 
     .rsvp .content .rsvp-form .header .subtitle-en {

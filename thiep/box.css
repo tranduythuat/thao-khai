@@ -308,7 +308,7 @@
 .lb-told3 {
   font-family: var(--font-htl);
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 24px;
   text-align: center;
   margin: 5% 0 10%;
 }
@@ -906,7 +906,7 @@ div.hamburger-box.active .bottom {
 
 .rsvp .content .rsvp-form {
   display: block;
-  padding: 0 8%;
+  padding: 0 7%;
 }
 
 .rsvp .content .rsvp-form .header .title {
@@ -922,15 +922,14 @@ div.hamburger-box.active .bottom {
   font-size: 22px;
 }
 
-.rsvp .content .rsvp-form .header .subtitle,
-.rsvp .content .rsvp-form .header .subtitle-en {
-  font-size: 16px;
+.rsvp .content .rsvp-form .header .subtitle {
+  font-size: 14px;
   line-height: 1.5;
   font-family: "SVG-Gotham", sans-serif;
+  margin-bottom: 10%;
 }
 
 .rsvp .content .rsvp-form .header .subtitle-en {
-  margin-bottom: 10%;
   font-size: 12px;
   text-transform: uppercase;
   font-family: var(--font-GothamBook);
