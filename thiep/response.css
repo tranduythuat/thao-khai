@@ -1,0 +1,108 @@
+@media (max-width: 500px) {
+    .lb-circle {
+        font-size: clamp(8px, calc((10 / 500) * 100vw), 10px);
+        ;
+    }
+
+    .dress-code .item .label {
+        font-size: calc((11 / 500) * 100vw);
+    }
+
+    .lb-rsvp1,
+    .lb-rsvp2 {
+        font-size: calc((12 / 500) * 100vw);
+    }
+
+    .lb-rec3,
+    .note p {
+        font-size: calc((14 / 500) * 100vw);
+    }
+
+    .dress-code .item .icon img {
+        max-width: calc((55 / 500) * 100vw);
+    }
+
+    .lb-top,
+    .lb-time,
+    .lb-time3 {
+        font-size: calc((15 / 500) * 100vw);
+    }
+
+    .lb-told2 {
+        font-size: calc((16 / 500) * 100vw);
+        word-spacing: calc((2 / 500) * 100vw);
+        letter-spacing: calc((1 / 500) * 100vw);
+    }
+
+    .lb-told1,
+    .lb-told3,
+    .lb-rec-time {
+        font-size: calc((16 / 500) * 100vw);
+    }
+
+    .lb-told4 {
+        font-size: calc((18 / 500) * 100vw);
+    }
+
+    .lb-rec1,
+    .lb-rec2 {
+        font-size: calc((17 / 500) * 100vw);
+    }
+
+    .lb-rsvp3 {
+        font-size: calc((20 / 500) * 100vw);
+    }
+
+    .lb-save {
+        font-size: calc((30 / 500) * 100vw);
+    }
+
+    .lb-name,
+    .lb-rec {
+        font-size: calc((40 / 500) * 100vw);
+    }
+
+    .lb-time2 {
+        font-size: calc((50 / 500) * 100vw);
+    }
+
+    .circle-image {
+        max-width: calc((50 / 500) * 100vw);
+    }
+}
+
+@media (max-width: 500px) {
+    .rsvp .content .rsvp-form .header .title {
+        font-size: calc((29 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .header .title i {
+        font-size: calc((22 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .header .subtitle {
+        font-size: calc((16 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .header .subtitle-en {
+        font-size: calc((12 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .form-group {
+        font-size: calc((10 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .form-group input[type="text"],
+    .rsvp .content .rsvp-form .form-group input[type="number"],
+    .rsvp .content .rsvp-form .form-group textarea {
+        font-size: calc((12 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .form-group .subtitle {
+        font-size: calc((12 / 500) * 100vw);
+    }
+
+    .rsvp .content .rsvp-form .submit-btn {
+        font-size: calc((12 / 500) * 100vw);
+    }
+}

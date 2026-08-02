@@ -1,0 +1,1159 @@
+@font-face {
+  font-family: 'SVN-Gotham';
+  src: url('../thiep/fonts/SVN-GothamBook.woff2') format('woff2'),
+    url('../thiep/fonts/SVN-GothamBook.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SVN-GothamBook';
+  src: url('../thiep/fonts/SVN-GothamBook.woff2') format('woff2'),
+    url('../thiep/fonts/SVN-GothamBook.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SVN-GothamLight';
+  src: url('../thiep/fonts/SVN-GothamLight.woff2') format('woff2'),
+    url('../thiep/fonts/SVN-GothamLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: '1FTV VIP Hertine';
+  src: url('../thiep/fonts/1FTVVIPHertine.woff2') format('woff2'),
+    url('../thiep/fonts/1FTVVIPHertine.woff') format('woff'),
+    url('../thiep/fonts/1FTVVIPHertine.svg#1FTVVIPHertine') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HLT JaneAusten';
+  src: url('../thiep/fonts/HLTJaneAusten-NoSecret.woff2') format('woff2'),
+    url('../thiep/fonts/HLTJaneAusten-NoSecret.woff') format('woff'),
+    url('../thiep/fonts/HLTJaneAusten-NoSecret.svg#HLTJaneAusten-NoSecret') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  --font-gotham: 'SVN-Gotham';
+  --font-GothamLight: 'SVN-GothamLight';
+  --font-GothamBook: 'SVN-GothamBook';
+  --font-ftv: '1FTV VIP Hertine';
+  --font-htl: 'HLT JaneAusten';
+}
+
+
+/* Đảm bảo box-circle luôn cố định và không ảnh hưởng đến nội dung trang */
+.box-circle {
+  position: fixed;
+  /* Đảm bảo box-circle luôn cố định trên màn hình */
+  bottom: 20px;
+  /* Đẩy box-circle xuống một chút từ trên cùng */
+  right: 20px;
+  /* Căn box-circle về phía bên phải */
+  z-index: 9998;
+  /* Đảm bảo box-circle nằm trên các phần tử khác */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lb-circle {
+  margin-top: 8%;
+  font-size: 10px;
+  color: #111;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: var(--font-gotham);
+  text-align: center;
+  line-height: 10px;
+}
+
+/* Thêm hiệu ứng hover cho label */
+.lb-circle:hover {
+  color: #3498db;
+}
+
+.circle {
+  max-width: 50px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+  overflow: hidden;
+  /* Đảm bảo hình ảnh không bị tràn ra ngoài */
+  transition: transform 0.5s ease;
+  /* Chuyển động mượt mà */
+  z-index: 2;
+}
+
+/* Khi hình tròn được hover */
+.circle:hover {
+  transform: scale(1.1);
+  /* Tăng kích thước hình tròn khi hover */
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); */
+}
+
+/* Hình ảnh bên trong hình tròn */
+.circle-image {
+  max-width: 50px;
+  min-width: 40px;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Hiệu ứng xoay liên tục */
+.circle.spin {
+  animation: spin 1s linear infinite;
+  /* Xoay liên tục */
+}
+
+/* Định nghĩa hoạt ảnh xoay */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.container,
+.container-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+.container-wrapper {
+  width: 100%;
+  background-image: url('./anh/back-02.png');
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: visible;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.lb-top,
+.lb-time {
+  font-family: var(--font-gotham);
+  font-size: 15px;
+  font-weight: 600;
+
+}
+
+.img-top {
+  width: 80%;
+  margin: 10%;
+}
+
+.lb-name {
+  font-family: var(--font-ftv);
+  font-size: 40px;
+}
+
+.time {
+  background-image: url('./anh/frame-02.png');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  aspect-ratio: 500 / 831;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
+  padding: 0 30px;
+}
+
+.lb-save {
+  font-family: var(--font-htl);
+  font-size: 30px;
+  font-weight: 500;
+  /* margin-top: 32%; */
+}
+
+.box-grid {
+  width: 100%;
+  display: flex;
+  margin: 5% 0;
+  padding: 5%;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 150px;
+}
+
+.img-clm4,
+.img-clm5 {
+  width: 50%;
+  z-index: -1;
+}
+
+.img-clm1,
+.img-clm2 {
+  width: 60%;
+  z-index: -1;
+}
+
+.img-clm3 {
+  width: 100%;
+  padding: 0 -100px;
+  z-index: -1;
+}
+
+.lb-time2 {
+  font-family: var(--font-htl);
+  font-weight: 500;
+  font-size: 50px;
+  line-height: .5;
+}
+
+.lb-time3 {
+  font-family: var(--font-gotham);
+  font-size: 15px;
+}
+
+#wedding-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-told1 {
+  width: 40%;
+  margin: -50px 0 20px 0;
+  z-index: -1;
+}
+
+.lb-told1 {
+  font-family: var(--font-gotham);
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.lb-told2 {
+  font-family: var(--font-gotham);
+  font-weight: 300;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 6%;
+  font-size: 16px;
+  margin-top: 5%;
+}
+
+.lb-told3 {
+  font-family: var(--font-htl);
+  line-height: 1.5;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.img-told2 {
+  width: 80%;
+  margin-bottom: 4%;
+}
+
+.lb-told4 {
+  font-family: var(--font-htl);
+  line-height: 1.5;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10%;
+  word-spacing: 2px;
+}
+
+#reception {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.img-rec1 {
+  width: 40%;
+  margin-bottom: 10%;
+  z-index: -1;
+}
+
+.lb-rec {
+  font-family: var(--font-htl);
+  font-size: 40px;
+  margin-bottom: 4%;
+}
+
+.lb-rec1 {
+  font-family: var(--font-gotham);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin: 2% 5% 5%;
+  text-align: center;
+}
+
+.lb-rec-time {
+  font-size: 16px;
+  font-family: var(--font-gotham);
+}
+
+.lb-rec2 {
+  font-family: var(--font-gotham);
+  font-weight: 300;
+  font-size: 17px;
+  word-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.lb-rec3 {
+  font-family: var(--font-gotham);
+  font-size: 14px;
+  margin-bottom: 3%;
+}
+
+.after-party-title {
+  margin-top: 15%;
+}
+
+.note {
+  margin-bottom: 10%;
+  padding: 0 5%;
+}
+
+.note p {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;
+  font-family: var(--font-GothamBook);
+  font-weight: 600;
+}
+
+.note p.note-3 {
+  font-style: italic;
+  font-family: var(--font-GothamLight);
+}
+
+.dress-code {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 10%;
+  /* gap: 3%; */
+}
+
+.dress-code .item {
+  width: 19%;
+}
+
+.dress-code .item .icon img {
+  max-width: 55px;
+  width: 100%;
+  height: auto;
+}
+
+.dress-code .item .label {
+  font-family: var(--font-gotham);
+  font-size: 11px;
+  margin-top: 4%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.dress-code .item .icon,
+.dress-code .item .label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-map {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.img-rec {
+  width: 50%;
+  margin: 4% 0 16%;
+}
+
+.img-rec2 {
+  width: 80%;
+  margin-bottom: 10%;
+  z-index: -1;
+}
+
+.img-rec3 {
+  width: 80%;
+  margin-bottom: 10%;
+}
+
+.img-rsvp1 {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.lb-rsvp1 {
+  font-family: var(--font-gotham);
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 12px;
+  margin-top: 4%;
+}
+
+.lb-rsvp2 {
+  font-family: var(--font-gotham);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 2% 0 10%;
+}
+
+
+.end {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end .label {
+  display: inline-block;
+  font-family: var(--font-htl);
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+hr {
+  width: 30px;
+  margin: 4% 0;
+  border: 2px solid black;
+  border-radius: 40px;
+}
+
+
+.img-rsvp2 {
+  width: 70%;
+  margin: 4% 0 10%;
+}
+
+
+
+/* ==========Animation=============== */
+
+
+/* Hiệu ứng fade-down */
+.lb4,
+.lb44,
+.img-timeline,
+.img-dress,
+.til1 {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.lb4.visible,
+.lb44.visible,
+.img-timeline.visible,
+.img-dress.visible,
+.til1.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hiệu ứng fade-up */
+.img-told1,
+.img-rec1,
+.btn {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.img-told1.visible,
+.img-rec1.visible,
+.btn.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hiệu ứng fade-right */
+.lb3,
+.story1 {
+  transform: translateX(-50px);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.lb3.visible,
+.story1.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Hiệu ứng fade-left */
+.lb3,
+.story2 {
+  transform: translateX(50px);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.lb3.visible,
+.story2.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Hiệu ứng zoom-in và nảy */
+.img-clm1,
+.img-clm2,
+.img-clm3,
+.img-clm4,
+.img-clm5,
+.img-rec2 {
+  transform: scale(0.5);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Khi có class visible thì thực hiện hiệu ứng nhảy và zoom-in */
+.img-clm1.visible,
+.img-clm2.visible,
+.img-clm3.visible,
+.img-clm4.visible,
+.img-clm5.visible,
+.img-rec2.visible {
+  transform: scale(1);
+  opacity: 1;
+  animation: bounceIn 1s ease-in-out 1;
+  /* Lặp lại hiệu ứng 3 lần */
+}
+
+/* Định nghĩa hiệu ứng nảy (bounce) */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5) translateY(-20px);
+    opacity: 0;
+  }
+
+  33% {
+    transform: scale(1.1) translateY(10px);
+    /* Nở ra một chút */
+    opacity: 1;
+  }
+
+  66% {
+    transform: scale(0.8) translateY(-10px);
+    /* Thu nhỏ lại một chút */
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hiệu ứng zoom-in */
+.img-rec2 {
+  transform: scale(0.5);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.img-rec2.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+
+
+/* ============nav================= */
+
+.main-header {
+  background: #fff;
+  margin: 0;
+}
+
+ul li {
+  list-style-type: none
+}
+
+.caret-up {
+  width: 0;
+  height: 0;
+  border-left: 4px solid rgba(0, 0, 0, 0);
+  border-right: 4px solid rgba(0, 0, 0, 0);
+  border-bottom: 4px solid;
+
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+
+.stripe {
+  height: 70px;
+}
+
+div.hamburger-box {
+  width: 50px;
+  height: 48px;
+  display: block;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  background: transparent;
+  z-index: 9999;
+}
+
+.hamburger-box.active span {
+  display: none;
+}
+
+.hamburger-box span {
+  color: #000;
+  background: #fff;
+  position: absolute;
+  line-height: 50px;
+  font-size: 16px;
+  right: 50px;
+  padding: 0 10px;
+  display: inline-block;
+  height: 50px;
+  width: 105%;
+}
+
+div.hamburger-box .bun,
+div.hamburger-box .meat {
+  width: 30px;
+  height: 5px;
+  border-radius: 30%;
+  background-color: #111;
+  position: absolute;
+  transition: all 600ms ease-in-out;
+  -webkit-transition: all 600ms ease-in-out;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+div.hamburger-box .top {
+  top: 12px;
+}
+
+div.hamburger-box .meat {
+  top: 50%;
+  margin-top: -3px;
+}
+
+div.hamburger-box .bottom {
+  bottom: 13px;
+}
+
+div.shamburger-box:hover .top {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  width: 18px;
+  top: 17px;
+}
+
+div.hamburger-box.active .top {
+  transform: rotate(-405deg);
+  -webkit-transform: rotate(-405deg);
+  width: 28px;
+  top: 35%;
+}
+
+div.hamburger-box.active .top,
+div.hamburger-box.active .bottom {
+  transition: all 800ms ease-in-out;
+}
+
+div.shamburger-box:hover .meat {
+  width: 22px;
+  margin-left: -10px;
+}
+
+div.hamburger-box.active .meat {
+  width: 0px;
+  margin-left: 0px;
+}
+
+div.shamburger-box:hover .bottom {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 18px;
+  bottom: 17px;
+}
+
+div.hamburger-box.active .bottom {
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  width: 28px;
+  bottom: 55%;
+}
+
+.super-container {
+  position: relative;
+  height: 100%;
+}
+
+.slide-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  text-align: center;
+  height: 100vh;
+  z-index: 12000;
+}
+
+a.toggle {
+  position: relative;
+  top: 30px;
+}
+
+.menu {
+  width: 200px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: -200px;
+  margin: 0;
+  text-align: left;
+  z-index: 12001;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  font-family: var(--font-gotham);
+}
+
+.menu.active {
+  right: 0;
+}
+
+.menu a {
+  transition: all 200ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  color: #111;
+  text-decoration: none;
+  display: block;
+  padding: 12px 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.1);
+}
+
+.menu a:first-child {
+  border-top: none;
+}
+
+/* Đặt hiệu ứng mặc định cho liên kết */
+.menu a {
+  text-decoration: none;
+  /* Bỏ gạch chân mặc định */
+  transition: all 0.3s ease;
+  /* Thêm hiệu ứng mượt mà cho tất cả các thuộc tính */
+}
+
+/* Khi hover vào liên kết */
+.menu a:hover {
+  text-decoration: underline;
+  /* Thêm gạch chân khi hover */
+  text-decoration-color: #111;
+  /* Màu gạch chân */
+  background-color: transparent;
+  /* Bỏ nền khi hover */
+  transform: scale(1.1);
+  /* Tăng kích thước nhẹ khi hover */
+}
+
+.slide-container,
+.menu {
+  transition: right 300ms ease-out;
+  -webkit-transition: right 300ms ease-out;
+}
+
+.menu-on .slide-container {
+  left: -200px;
+}
+
+div.hamburger-box {
+  z-index: 999;
+  width: 38px;
+  right: 0px;
+  color: #111;
+}
+
+.menu ul {
+  /* background: #fff; */
+  padding: 0px;
+  margin-top: 20%;
+}
+
+.hamburger-box span {
+  right: 55px;
+  color: #111;
+}
+
+.hamburger-box.active {
+  top: 0;
+  background: #fff;
+}
+
+.hamburger-box.active .bun {
+  background: #111;
+}
+
+div.hamburger-box.active .top,
+div.hamburger-box.active .bottom {
+  right: 10px;
+  top: 20px;
+}
+
+/* rsvp form */
+
+.rsvp {
+  width: 100%;
+}
+
+.rsvp .content {
+  width: 100%;
+  perspective: 1000px;
+  position: relative;
+  text-align: center;
+  padding: 8% 0;
+}
+
+.rsvp .content .rsvp-form {
+  display: block;
+  padding: 0 8%;
+}
+
+.rsvp .content .rsvp-form .header .title {
+  font-size: 40px;
+  font-family: var(--font-htl);
+  line-height: .8;
+  margin-bottom: 5%;
+}
+
+.rsvp .content .rsvp-form .header .title i {
+  text-transform: unset;
+  font-family: "Lora", sans-serif;
+  font-size: 22px;
+}
+
+.rsvp .content .rsvp-form .header .subtitle,
+.rsvp .content .rsvp-form .header .subtitle-en {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "SVG-Gotham", sans-serif;
+}
+
+.rsvp .content .rsvp-form .header .subtitle-en {
+  margin-bottom: 10%;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: var(--font-GothamBook);
+  font-style: italic;
+}
+
+.rsvp .content .rsvp-form .button-group {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8%;
+  margin-bottom: 2%;
+}
+
+.rsvp .content .rsvp-form .button-group .radio-wrapper {
+  position: relative;
+}
+
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.rsvp .content .rsvp-form .button-group .radio-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 5% 0;
+  height: 100%;
+  line-height: 1.2;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: solid 2px #231f20ff;
+  font-family: "SVG-gotham", sans-serif;
+}
+
+.rsvp .content .rsvp-form .button-group .radio-label:hover {
+  background: #231f20ff;
+  color: white;
+}
+
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type="radio"]:checked+.radio-label {
+  background: #231f20ff;
+  color: white;
+}
+
+.rsvp .content .rsvp-form .form-group {
+  margin-bottom: 4%;
+  position: relative;
+  font-size: 10px;
+}
+
+.rsvp .content .rsvp-form .form-group input[type="text"],
+.rsvp .content .rsvp-form .form-group input[type="number"],
+.rsvp .content .rsvp-form .form-group textarea {
+  font-family: inherit;
+  width: 100%;
+  padding: 2% 4%;
+  border-radius: 10px;
+  background: transparent;
+  outline: none;
+  border: solid 2px #231f20ff;
+  line-height: 1;
+  transition: border-color 0.3s ease;
+  color: #231f20ff;
+  background-color: transparent;
+  font-size: 12px;
+  font-family: "SVG-GothamLight", sans-serif;
+}
+
+.rsvp .content .rsvp-form .form-group input[type="text"]:focus,
+.rsvp .content .rsvp-form .form-group input[type="number"]:focus,
+.rsvp .content .rsvp-form .form-group textarea:focus {
+  outline: none;
+}
+
+.rsvp .content .rsvp-form .form-group input[type="text"]::placeholder,
+.rsvp .content .rsvp-form .form-group textarea::placeholder {
+  color: #939292ff;
+}
+
+.rsvp .content .rsvp-form .form-group textarea#message {
+  aspect-ratio: 8 / 2;
+  resize: vertical;
+  padding: 2% 4%;
+  border-radius: 15px;
+  line-height: 1.6;
+}
+
+.rsvp .content .rsvp-form .form-group textarea#guest-names {
+  aspect-ratio: 9 / 1;
+  resize: vertical;
+  padding: 2% 4%;
+  border-radius: 15px;
+}
+
+.rsvp .content .rsvp-form .form-group textarea::placeholder {
+  white-space: pre-line;
+  margin: 5px;
+  /* Cho phép hiển thị xuống dòng trong placeholder */
+}
+
+.rsvp .content .rsvp-form .form-group .subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 3%;
+  font-family: "SVG-gotham-book", sans-serif;
+}
+
+.rsvp .content .rsvp-form .form-group .flower1 {
+  max-width: 82px;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  right: -5%;
+  bottom: 0;
+}
+
+.rsvp .content .rsvp-form .form-group.confirm-related {
+  margin: 8% 0;
+}
+
+.rsvp .content .rsvp-form .form-group.confirm-related .button-group {
+  grid-template-columns: auto auto auto;
+}
+
+.rsvp .content .rsvp-form .form-group.confirm-related .button-group .radio-label {
+  display: block;
+  padding: 6% 0;
+  height: 100%;
+  line-height: 1.2;
+}
+
+.rsvp .content .rsvp-form .form-group.guests-number .button-group.first {
+  grid-template-columns: auto;
+}
+
+.rsvp .content .rsvp-form .form-group.guests-number .button-group.first .radio-label {
+  padding: 1.8% 0;
+  height: 100%;
+  line-height: 1.2;
+}
+
+.rsvp .content .rsvp-form .form-group.guests-number .button-group.second {
+  grid-template-columns: auto auto auto;
+}
+
+.rsvp .content .rsvp-form .form-group.guests-number .button-group.second .radio-label {
+  padding: 4% 0;
+  height: 100%;
+  line-height: 1.2;
+}
+
+.rsvp .content .rsvp-form .submit-btn {
+  width: 28%;
+  padding: 2%;
+  line-height: 1;
+  background: #231f20ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  margin: 1% 0 6%;
+}
+
+.rsvp .content .rsvp-form .submit-btn:hover {
+  background: #293324;
+  opacity: 0.9;
+}
+
+.rsvp .content .rsvp-form .submit-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+
+  .box {
+    padding-top: 10%;
+  }
+
+  .ebcf_modal-content {
+    width: 80%;
+  }
+
+  .box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lb-cnt1 {
+    font-size: 25px;
+  }
+
+  .lb-cnt2 {
+    font-size: 15px;
+  }
+
+  .lb-cnt3 {
+    font-size: 20px;
+  }
+
+  .box-container {
+    height: 850px;
+  }
+
+  .box-top {
+    margin-top: 50px;
+  }
+
+  .lb-cnt3 {
+    font-size: 17px;
+  }
+}

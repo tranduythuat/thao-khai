@@ -1,0 +1,1367 @@
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamBlack.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBlack.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBlack.svg#SVN-GothamBlack') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-Gotham.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-Gotham.woff') format('woff'),
+		url('../thiep/fonts/SVN-Gotham.svg#SVN-Gotham') format('svg');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham Book';
+	src: url('../thiep/fonts/SVN-GothamBook.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBook.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBook.svg#SVN-GothamBook') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamLight.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamLight.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamLight.svg#SVN-GothamLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamThin.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamThin.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamThin.svg#SVN-GothamThin') format('svg');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham Ultra';
+	src: url('../thiep/fonts/SVN-GothamUltra.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamUltra.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamUltra.svg#SVN-GothamUltra') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamBlackItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBlackItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBlackItalic.svg#SVN-GothamBlackItalic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamBoldItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBoldItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBoldItalic.svg#SVN-GothamBoldItalic') format('svg');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamBold.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBold.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBold.svg#SVN-GothamBold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamLight.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamLight.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamLight.svg#SVN-GothamLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamBold.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBold.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBold.svg#SVN-GothamBold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamItalic.svg#SVN-GothamItalic') format('svg');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamLightItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamLightItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamLightItalic.svg#SVN-GothamLightItalic') format('svg');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham Book';
+	src: url('../thiep/fonts/SVN-GothamBookItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamBookItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamBookItalic.svg#SVN-GothamBookItalic') format('svg');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham Ultra';
+	src: url('../thiep/fonts/SVN-GothamUltraItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamUltraItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamUltraItalic.svg#SVN-GothamUltraItalic') format('svg');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamThinItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamThinItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamThinItalic.svg#SVN-GothamThinItalic') format('svg');
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham';
+	src: url('../thiep/fonts/SVN-GothamLightItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamLightItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamLightItalic.svg#SVN-GothamLightItalic') format('svg');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham XLight';
+	src: url('../thiep/fonts/SVN-GothamXLight.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamXLight.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamXLight.svg#SVN-GothamXLight') format('svg');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'SVN-Gotham XLight';
+	src: url('../thiep/fonts/SVN-GothamXLightItalic.woff2') format('woff2'),
+		url('../thiep/fonts/SVN-GothamXLightItalic.woff') format('woff'),
+		url('../thiep/fonts/SVN-GothamXLightItalic.svg#SVN-GothamXLightItalic') format('svg');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: '1FTV VIP Retro Signature';
+	src: url('../thiep/fonts/1FTVVIPRetroSignature.woff2') format('woff2'),
+		url('../thiep/fonts/1FTVVIPRetroSignature.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MTD Doppelganger Display';
+	src: url('../thiep/fonts/MTDDoppelgangerDisplay.woff2') format('woff2'),
+		url('../thiep/fonts/MTDDoppelgangerDisplay.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--primary-color: rgb(121, 45, 38);
+	--secondary-color: #F8F3ED;
+	--font-gotham: 'SVN-Gotham';
+}
+
+
+[data-aos] {
+	will-change: opacity, transform;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 500px;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.container-wrapper {
+	/* height: 1000px; */
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	/* background-image: url('./anh/back-02.webp');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+
+.box-save {
+	width: 100%;
+	height: 800px;
+	background-image: url('./anh/3_4_11zon.webp');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin: 0 auto;
+	position: relative;
+	/* Thêm thuộc tính này để tạo bối cảnh cho vị trí tuyệt đối */
+}
+
+.box-save::before {
+	content: '';
+	position: absolute;
+	/* Đặt vị trí tuyệt đối */
+	top: 0;
+	/* Bắt đầu từ trên cùng */
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/* Phủ toàn bộ diện tích của container */
+	background: linear-gradient(to top, rgb(121, 45, 38), rgba(0, 0, 0, 0));
+	/* Gradient từ đen mờ dần đến trong suốt */
+	pointer-events: none;
+	/* Để các sự kiện chuột không bị chặn */
+	z-index: 1;
+	/* Đặt z-index thấp hơn để lớp phủ nằm dưới nội dung */
+}
+
+.img-box1 {
+	width: 60%;
+	position: relative;
+	/* Hoặc tuyệt đối nếu cần thiết */
+	z-index: 2;
+	/* Đặt z-index cao hơn để nội dung nổi bật hơn */
+	padding-bottom: 30px;
+}
+
+.box-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background-color: rgb(121, 45, 38);
+	color: #fff;
+}
+
+.lb2 {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+hr {
+	border: 0;
+	border-top: 2px solid #fff;
+	width: 100px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.hr2 {
+	border: 0;
+	border-top: 2px solid var(--primary-color);
+	width: 200px;
+	margin: 0 auto;
+	margin: 20px 0 30px 0;
+}
+
+
+.lb3 {
+	font-family: var(--font-gotham);
+	font-weight: 400;
+	font-size: 15px;
+	margin-bottom: 30px;
+}
+
+.box-nhatrai {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	line-height: 25px;
+	margin-bottom: 15px;
+}
+
+.nhatrai {
+	font-family: var(--font-gotham);
+	font-weight: 400;
+	font-size: 15px;
+	float: left;
+}
+
+.amlich {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 10px;
+}
+
+.diadiem {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 10px;
+}
+
+.lb4 {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 10px;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.time-date {
+	font-family: var(--font-gotham);
+	font-size: 22px;
+}
+
+.box-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 60px 0 50px;
+}
+
+.icon {
+	width: 40%;
+}
+
+.lb5 {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 12px;
+	margin-bottom: 20px;
+
+}
+
+.lb6 {
+	font-family: var(--font-gotham);
+	font-weight: 400;
+	font-size: 13px;
+	margin-bottom: 10px;
+	margin-top: -10px;
+}
+
+.church {
+	font-family: 'MTD Doppelganger Display';
+	font-size: 55px;
+	margin-bottom: 40px;
+}
+
+
+.box-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--secondary-color);
+	height: auto;
+	color: #111;
+}
+
+.name {
+	width: 50%;
+	margin: 50px 0;
+}
+
+.img-center {
+	width: 90%;
+	margin-bottom: 50px;
+}
+
+.time-center {
+	font-family: var(--font-gotham);
+	color: var(--primary-color);
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.date {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 13px;
+	margin: 5px 0 10px;
+}
+
+.label-name {
+	font-family: var(--font-gotham);
+	font-weight: 600;
+	font-size: 15px;
+	color: var(--primary-color);
+}
+
+.label-add {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 12px;
+	margin-bottom: 50px;
+}
+
+.add {
+	font-family: var(--font-gotham);
+	font-weight: 600;
+	font-size: 40px;
+	color: var(--primary-color);
+	margin-top: -20px;
+}
+
+.map {
+	font-family: var(--font-gotham);
+	width: 200px;
+	height: 30px;
+	background-color: var(--primary-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	border: none;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.box-qr {
+	font-family: var(--font-gotham);
+	width: 200px;
+	height: 30px;
+	background-color: var(--primary-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	border: none;
+	padding: 20px;
+	margin: 100px 0 -50px;
+}
+
+.link-map {
+	text-decoration: none;
+	color: #fff;
+}
+
+
+.box-timeline {
+	height: auto;
+	background-image: url('./anh/back-timeline-02.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.lb-timeline {
+	font-family: 'MTD Doppelganger Display';
+	color: #EDD643;
+	font-size: 45px;
+	margin: 30px 0 20px;
+}
+
+.img-timeline {
+	width: 70%;
+	margin-bottom: 40px;
+}
+
+.img-timeline2 {
+	width: 70%;
+	margin: 80px 0;
+}
+
+.img-timeline3 {
+	width: 50%;
+	margin-bottom: 100px;
+}
+
+.box-album {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	line-height: 17px;
+	background-color: var(--secondary-color);
+}
+
+.box-grid {
+	display: grid;
+	grid-template-columns: 1fr 2.5fr 1fr;
+	/* Cột giữa rộng gấp đôi 2 cột bên */
+	gap: 30px;
+	/* Khoảng cách giữa các cột */
+	padding: 0 10px;
+	/* Khoảng cách ở 2 bên */
+	margin-top: 50px;
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 9px;
+	text-align: center;
+	color: #111;
+	align-items: center;
+}
+
+
+.content {
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 12px;
+	margin: 70px 0 70px;
+}
+
+
+.lb-dress {
+	font-family: 'MTD Doppelganger Display';
+	color: var(--primary-color);
+	font-size: 50px;
+	margin-top: 60px;
+}
+
+.cnt-album {
+	font-family: 'SVN-Gotham';
+	font-weight: 300;
+	font-size: 10px;
+	margin-top: 12px;
+}
+
+
+.box-form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* padding: 20px; */
+	/* margin-bottom: 20px; */
+	background-image: url('./anh/back-form-02.png');
+}
+
+.box-grid2 {
+	display: grid;
+	grid-template-columns: 1fr 2.5fr 1fr;
+	/* Cột giữa rộng gấp đôi 2 cột bên */
+	gap: 30px;
+	/* Khoảng cách giữa các cột */
+	padding: 0 10px;
+	/* Khoảng cách ở 2 bên */
+	margin: 30px 0;
+	font-family: var(--font-gotham);
+	font-weight: 300;
+	font-size: 9px;
+	text-align: center;
+	color: #fff;
+	align-items: center;
+}
+
+.forrm {
+	display: flex;
+	flex-direction: column;
+	background-image: url('./anh/pic-form1-02.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 1095px;
+	/* padding: 0 30px; */
+	margin-bottom: 58px;
+}
+
+.hr1 {
+	border: 0;
+	border-top: 2px solid #111;
+	width: 300px;
+	margin: 0 auto;
+	/* margin-bottom: 5px; */
+	/* margin-top: -10px; */
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+
+	width: 80%;
+	text-align: center;
+}
+
+.feed-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 10px 0 0 0;
+	line-height: 20px;
+}
+
+
+.in-fe {
+	font-size: 11px;
+	font-weight: 300;
+	font-family: 'SVN-Gotham';
+	padding: 10px;
+	/* margin-top: 480px; */
+}
+
+.til {
+	display: flex;
+	text-align: center;
+	font-family: 'SVN-gotham';
+	font-size: 10px;
+}
+
+.til-custom {
+	margin-top: 590px !important;
+	margin-bottom: 20px;
+}
+
+[type="radio"] {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	/* overflow: hidden; */
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	/* white-space: nowrap; */
+}
+
+
+.til {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	font-family: 'SVN-gotham';
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+.container-check {
+	/* margin: 5px 0 20px 0; */
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	/* margin: 0 auto; */
+	font-family: 'SVN-Gotham';
+	font-weight: 300;
+}
+
+.container-check1 {
+	margin-top: 5px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	/* margin: 0 auto; */
+	font-family: 'SVN-Gotham';
+	font-weight: 300;
+}
+
+
+.box-feed:checked+label {
+	color: #fff;
+	background-color: #FBE1D7;
+}
+
+.box-feed {
+	border-radius: 20px;
+	width: 100px;
+	flex: 1;
+}
+
+.box-check {
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+	font-family: 'SVN-Gotham';
+	border-radius: 20px;
+	/*margin: 0 15px;*/
+}
+
+.box-feed:checked+label {
+	color: #fff;
+	background-color: #FBE1D7;
+}
+
+
+.til-check {
+	/* margin: 0 auto; */
+	font-style: normal;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+
+.check-box {
+	width: 90px;
+	text-align: center;
+	display: inline-block;
+	border: 2px solid #111;
+	padding: 5px 10px;
+	margin: 5px 20px;
+	border-radius: 20px;
+	font-style: normal;
+	/* background-color: #fff; */
+}
+
+.check-box2 {
+	width: 150px;
+	text-align: center;
+	display: inline-block;
+	border: 2px solid #111;
+	padding: 5px 10px;
+	margin: 5px 20px;
+	border-radius: 20px;
+	font-style: normal;
+	/* background-color: #fff; */
+}
+
+.check-box1 {
+	width: 350px;
+	text-align: center;
+	display: inline-block;
+	border: 2px solid #111;
+	padding: 5px 10px;
+	margin: 5px 20px;
+	border-radius: 20px;
+	font-style: normal;
+	/* background-color: #fff; */
+}
+
+.check-box3 {
+	width: 65px;
+	text-align: center;
+	display: inline-block;
+	border: 2px solid #111;
+	padding: 5px 10px;
+	margin: 5px 20px;
+	border-radius: 20px;
+	font-style: normal;
+	/* background-color: #fff; */
+}
+
+.box-feed:checked+label {
+	color: #111;
+	border: 2px solid #FBE1D7;
+	background-color: #FBE1D7;
+}
+
+.box-ten {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	font-family: 'SVN-Gontham';
+}
+
+.inp-ten {
+	width: 350px;
+	height: 30px;
+	text-align: left;
+	border-radius: 20px;
+	border: 2px solid #111;
+	font-size: 12px;
+	font-weight: 300;
+	padding: 10px;
+	margin: 5px 0;
+	font-family: 'SVN-Gotham';
+	background: none;
+}
+
+textarea {
+	width: 350px;
+	height: 100px;
+	text-align: left;
+	border-radius: 20px;
+	border: 2px solid #111;
+	font-size: 13px;
+	font-weight: 300;
+	padding: 10px;
+	margin: 5px 0;
+	font-family: 'SVN-Gotham';
+	background: none;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 40px;
+}
+
+.xacnhan {
+	height: 30px;
+	font-size: 15px;
+	background: #FBE1D7;
+	color: #111;
+	margin: 5px 10px 20px;
+	border-radius: 20px;
+	border: 1px solid #FBE1D7;
+	cursor: pointer;
+	width: 150px;
+	z-index: 2;
+}
+
+.xacnhan:hover {
+	background: #111;
+	color: #fff;
+}
+
+.img-end {
+	width: 100%;
+}
+
+.box-end {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	/* margin: 50px 0 60px 0; */
+	line-height: 15px;
+	color: #fff;
+	font-weight: 300;
+
+	margin-top: 40px;
+}
+
+.lb-end1 {
+	font-family: var(--font-gotham);
+	font-size: 10px;
+
+	margin-top: 25px;
+}
+
+.lb-end2 {
+	font-family: var(--font-gotham);
+	font-size: 9px;
+}
+
+
+/* SLIDER */
+.slider {
+	width: 100%;
+	max-width: 800px;
+	height: 675px;
+	position: relative;
+	overflow: hidden;
+	/* <===  */
+	border-radius: 8px;
+	margin-top: 50px;
+}
+
+.slide {
+	width: 100%;
+	max-width: 800px;
+	height: 350px;
+	position: absolute;
+	transition: all 0.5s;
+}
+
+.slide img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.btn {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	padding: 10px;
+	border: none;
+	border-radius: 50%;
+	z-index: 10px;
+	cursor: pointer;
+	background-color: #fff;
+	font-size: 18px;
+}
+
+.btn:active {
+	transform: scale(1.1);
+}
+
+.btn-prev {
+	top: 45%;
+	left: 2%;
+}
+
+.btn-next {
+	top: 45%;
+	right: 2%;
+}
+
+
+/* modall=========== */
+.btn-modal {
+	cursor: pointer;
+	/* width: 150px; */
+	background: none;
+	border: none;
+	font-family: var(--font-gotham);
+	color: #fff;
+	font-size: 20px;
+}
+
+/* Modal */
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	justify-content: center;
+	align-items: flex-start;
+	/* or center */
+	z-index: 1000;
+	/* depending on what z-index values exist in your page, in order for the modal layer to sit on top of other content */
+	overflow: auto;
+	/* enable scrolling if needed - although this is not really necessary since we are going take care of overflow in modal-content */
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.btn-modal {
+	cursor: pointer;
+	/* width: 150px; */
+	background: none;
+	border: none;
+}
+
+.img-modal {
+	width: 100%;
+}
+
+.modal.modal-show {
+	animation: fadeIn 0.1s ease-in-out forwards;
+}
+
+.modal.modal-hide {
+	animation: fadeOut 0.1s ease-in-out 0.1s forwards;
+}
+
+.modal-content {
+	position: relative;
+	background-color: #fff;
+	margin: 2rem;
+	padding: 2rem;
+	border-radius: 0.25rem;
+	width: 50%;
+	max-height: 75%;
+	overflow: auto;
+	/* box-shadow: 0 4px 20px rgba(0,0,0,0.4); */
+}
+
+.modal.modal-show .modal-content {
+	animation: fadeInDown 0.3s ease-in-out forwards;
+}
+
+.modal.modal-hide .modal-content {
+	animation: fadeOutUp 0.2s ease-in-out forwards;
+}
+
+.modal-content h1 {
+	font-family: var(--font-gotham);
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.modal-content p {
+	margin: 1rem 0;
+	line-height: 1.5rem;
+}
+
+.modal-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 1.75rem;
+	font-weight: bold;
+	padding: 0 0.75rem;
+	/* width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+	color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	user-select: none;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		transform: translateY(-3rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeOutUp {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-3rem);
+	}
+}
+
+@media(max-width: 992px) {
+	html {
+		font-size: 14px;
+	}
+
+	.modal-content {
+		width: 80%;
+	}
+}
+
+@media(max-width:767px) {
+	html {
+		font-size: 12px;
+	}
+
+	.modal-content {
+		padding: 2rem 1rem 1rem 1rem;
+		width: 90%;
+	}
+
+	.modal-content h1 {
+		margin-bottom: 1.5rem;
+	}
+}
+
+
+/* The Modal (background) */
+.ebcf_modal {
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+	padding-top: 100px;
+	/* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	overflow: auto;
+	/* Enable scroll if needed */
+	background-color: rgb(0, 0, 0);
+	/* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* Black w/ opacity */
+}
+
+/* Modal Content */
+.ebcf_modal-content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%;
+}
+
+.box-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/* The Close Button */
+.ebcf_close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.ebcf_close:hover,
+.ebcf_close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+.circle {
+	position: fixed;
+	top: 20px;
+	/* Đẩy hình tròn lên phía trên cùng */
+	right: 20px;
+	/* Vị trí của hình tròn căn phải */
+	width: 80px;
+	height: 80px;
+	/* background-color: #3498db; */
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	/* Đảm bảo hình ảnh không bị tràn ra ngoài */
+	transition: transform 1s linear;
+	/* Chuyển động mượt mà */
+	z-index: 2;
+	/* Đảm bảo hình tròn nổi bật trên các phần tử khác */
+}
+
+/* Khi hình tròn được hover */
+.circle:hover {
+	/* background-color: #2980b9; */
+}
+
+/* Hình ảnh bên trong hình tròn */
+.circle-image {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+
+/* Hiệu ứng xoay liên tục */
+.circle.spin {
+	animation: spin 1s linear infinite;
+	/* Xoay liên tục */
+}
+
+/* Định nghĩa hoạt ảnh xoay */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+/* ================================ */
+
+@media (max-width: 480px) {
+	.container {
+		width: 100%;
+	}
+
+	.info {
+		font-size: 10px;
+	}
+
+	.lichtrinh {
+		margin-left: 55px;
+	}
+
+	.img-map {
+		width: 90%;
+		margin-left: -20px;
+	}
+
+	.box-feed {
+		width: 50px;
+	}
+
+	.feed-info {
+		margin: 0;
+		line-height: 15px;
+	}
+
+	.in-fe {
+		font-size: 10px;
+		margin-bottom: 15px;
+	}
+
+	textarea {
+		height: 70px;
+	}
+
+	.icon {
+		width: 50%;
+	}
+
+	.til-custom {
+		margin-top: 580px !important;
+		margin-bottom: 20px;
+	}
+
+	.box-grid2 {
+		margin-bottom: 0;
+	}
+
+	.box-end {
+		margin-top: 10px;
+	}
+
+	.forrm {
+		width: 95%;
+		margin-bottom: 10px;
+	}
+
+	.lb-end1 {
+		margin-top: 30px;
+	}
+
+	.container-check {
+		margin-bottom: 10px;
+	}
+
+	.hr1 {
+		margin-bottom: 20px;
+	}
+
+	.slider {
+		height: 550px;
+	}
+}
+
+/* Loading screen container */
+.loading-container {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+/* Spinner animation */
+.spinner {
+	border: 6px solid rgba(255, 255, 255, 0.3);
+	border-top: 6px solid #fff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+}
+
+/* Spinner animation keyframes */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.custom-popup {
+	font-family: 'SVN-gotham';
+}
+
+.custom-title {
+	font-weight: bold;
+}
+
+.custom-confirm-button {
+	text-align: center;
+	display: inline-block;
+	border: 2px solid #111;
+	padding: 10px 20px !important;
+	margin: 5px 20px !important;
+	border-radius: 20px !important;
+	font-style: normal;
+	background-color: transparent;
+	color: #111;
+
+	font-size: 13px;
+	font-weight: 400;
+
+	text-transform: uppercase;
+	font-weight: bold;
+}
