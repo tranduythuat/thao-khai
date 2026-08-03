@@ -1,163 +1,226 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     const rsvp = document.getElementById('rsvp-btn');
-//     rsvp.addEventListener("click", toggleRsvp);
-// })
+(() => {
+    "use strict";
 
-function toggleRsvp(e) {
-    e.preventDefault();
+    /* ======================================================
+         HELPERS
+      ====================================================== */
+    const qs = (selector, parent = document) => parent.querySelector(selector);
+    var SUPPORTED_LANGS = ["vi", "zh"];
 
-    Swal.fire({
-        title: "Attendance confirmation <br> <span class='confirm-sub-vn'>/Xác nhận tham dự/</span>",
-        html: `
-            <form id="rsvpForm" style="text-align:left">
-                <label for="name" style="display:block;margin-bottom:6px;">
-                    Your Name? <br>
-                    Tên của bạn?
-                </label>
-                <input id="name" name="name" type="text" placeholder="" required class="form-input" style="width:100%"/>
-                <label for="confirm" style="display:block;margin-bottom:6px;">
-                    Will you be there to celebrate our wedding with us? <br>
-                    Bạn có tham dự lễ cưới của chúng mình không?
-                </label>
-                <select id="confirm" required name="confirm" class="form-input" style="width:100%">
-                    <option value="" disabled selected>-- Please select (Vui lòng chọn) --</option>
-                    <option value="yes">Yes, I'll be there (Có, tôi sẽ tham dự)</option>
-                    <option value="no">Sorry, can't make it (Không, tôi không tham dự được)</option>
-                </select>
+    const qsa = (selector, parent = document) =>
+        parent.querySelectorAll(selector);
 
-                <label for="guest-number" style="display:block;margin-bottom:6px;">
-                    Number of attendees <br>
-                    Số khách tham dự
-                </label>
-                <select id="guest-number" required name="guest_number" class="form-input" style="width:100%">
-                    <option value="" disabled selected>-- Please select (Vui lòng chọn) --</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-        
-                <label for="after-party" style="display:block;margin:12px 0 6px;">
-                    And are you ready to party with us at the after party? <br>
-                    Bạn có quẩy cùng chúng mình ở after party không?
-                </label>
-                <select id="after-party" name="after_party" class="form-input" style="width:100%">
-                    <option value="" disabled selected>-- Please select (Vui lòng chọn) --</option>
-                    <option value="yes">Yes, I'll be there (Có, tôi sẽ tham dự)</option>
-                    <option value="no">Sorry, can't make it (Không, tôi không tham dự được)</option>
-                </select>
-                <label for="wish" style="display:block;margin-bottom:6px;">
-                    Write a wish for the bride and groom! <br>
-                    Hãy dành những lời chúc tốt đẹp nhất gửi đến <br> Xuân Duy và Mai Anh nhé!
-                </label>
-                <textarea style="width:100%" class="form-input"
-                    id="wish"
-                    name="wish"
-                    placeholder=""
-                ></textarea>
-            </form>
-        `,
-        confirmButtonText: "Confirm",
-        confirmButtonColor: "#c9b079",
-        showCancelButton: true,
-        cancelButtonText: "Close",
-        focusConfirm: false,
+    function getLangFromURL() {
+        var params = new URLSearchParams(window.location.search);
+        var lang = params.get("lang");
+        return isSupported(lang) ? lang : null;
+    }
+    function isSupported(lang) {
+        return SUPPORTED_LANGS.indexOf(lang) !== -1;
+    }
 
-        preConfirm: () => {
-            const name = document.getElementById("name").value;
-            const confirm = document.getElementById("confirm").value;
-            const guestNumber = document.getElementById("guest-number").value;
-            const afterParty = document.getElementById("after-party").value;
-            const wish = document.getElementById("wish").value;
+    /* ======================================================
+         RSVP
+      ====================================================== */
 
-            if (!name) {
-                Swal.showValidationMessage("Vui lòng điền tên của bạn - /Please fill in your name./");
-                return false;
+    function toggleAttendanceOptions(isAttending) {
+        const moveInputs = qsa('input[name="move"]');
+        const stayInputs = qsa('input[name="stay"]');
+        const relatedInputs = [...moveInputs, ...stayInputs];
+        const relatedGroups = qsa('.form-group.move, .form-group.stay');
+
+        relatedInputs.forEach((input) => {
+            input.disabled = !isAttending;
+            if (!isAttending) {
+                input.checked = false;
             }
+        });
 
-            if (!confirm) {
-                Swal.showValidationMessage("Please select confirm attendance - /Vui lòng chọn xác nhận tham dự/");
-                return false;
-            }
+        relatedGroups.forEach((group) => {
+            group.classList.toggle('is-disabled', !isAttending);
+        });
+    }
 
-            return {
-                name,
-                confirm,
-                guest_number: guestNumber,
-                after_party: afterParty,
-                wish
-            };
+    let syncAttendanceOptions = () => { };
+
+    async function handleFormSubmit(e, lang = "vi") {
+        e.preventDefault();
+        const form = document.forms["rsvpForm"];
+        // var urlLang = getLangFromURL();
+        // lang = urlLang
+
+        // form.addEventListener("submit", (e) => {
+        //   e.preventDefault();
+
+        //   const data = new FormData(form);
+        //   console.log(Object.fromEntries(data));
+        // });
+        if (!form) {
+            return;
         }
-    }).then(async (result) => {
-        if (!result.isConfirmed) return;
-        console.log("RSVP data:", result.value);
-        const data = result.value;
+
+        // const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
         const {
-            name = data.name,
-            confirm = data.confirm,
-            guest_number = data.guest_number,
-            after_party = data.after_party,
-            wish = data.after_party,
+            name,
+            confirm,
+            guests_number,
+            move,
+            stay,
+            wish,
         } = data;
 
+        const shouldClearSupportOptions = confirm === "No";
+        const normalizedMove = shouldClearSupportOptions ? "" : (move || "");
+        const normalizedStay = shouldClearSupportOptions ? "" : (stay || "");
+
+        // =========================
+        // i18n Messages
+        // =========================
+        const messages = {
+            vi: {
+                sendingTitle: "Đang gửi...",
+                sendingText: "Vui lòng chờ trong giây lát",
+                successTitle: "Thành công!",
+                successText:
+                    "Cảm ơn bạn đã xác nhận. Thông tin đã được chuyển đến cô dâu và chú rể rồi nha.",
+                errorTitle: "Lỗi!",
+                errorServer: "OPPS! Không tìm thấy server",
+                errorRetry: "Thử lại",
+            },
+            zh: {
+                sendingTitle: "正在提交...",
+                sendingText: "请稍候",
+                successTitle: "提交成功！",
+                successText: "感谢您的回复。您的确认信息已成功发送给新郎和新娘。",
+                errorTitle: "发生错误！",
+                errorServer: "哎呀！无法连接到服务器。",
+                errorRetry: "重试",
+            },
+        };
+
+        const t = messages[lang] || messages.vi;
+
+        // =========================
+        // Loading popup
+        // =========================
         Swal.fire({
-            title: 'Sending ...',
-            text: "Please wait a moment.",
+            title: t.sendingTitle,
+            text: t.sendingText,
             icon: "info",
             allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading();
-            },
+            didOpen: () => Swal.showLoading(),
         });
-        const url = "/exec?sheet=confirm";
+
+        const sheetURL = "https://script.google.com/macros/s/AKfycbzLa3DvePNdHFgMOOXYwE3h5q3dme-wryKI3HhBKfDHIza4u7m6cCGtD43JITSQeJU3cA/exec?sheet=confirm";
 
         try {
-            const res = await fetch(url, {
+            const res = await fetch(sheetURL, {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams({
                     name,
                     confirm,
-                    guest_number,
-                    after_party,
-                    wish
+                    guests_number,
+                    move: normalizedMove,
+                    stay: normalizedStay,
+                    wish,
                 }),
             });
 
-            const result = await res.json().catch(() => ({}));
-            console.log("Server response:", result);
-            if (Object.keys(result).length === 0) {
-                Swal.fire({
-                    title: "Lỗi!",
-                    text: "OPPS! Server not found!",
-                    icon: "error",
-                    confirmButtonText: "Try again",
-                    confirmButtonColor: "#000",
-                });
+            // Nếu server lỗi HTTP
+            if (!res.ok) {
+                throw new Error("Server response not OK");
+            }
 
+            const result = await res.json().catch(() => null);
+
+            if (!result) {
+                Swal.fire({
+                    title: t.errorTitle,
+                    text: t.errorServer,
+                    icon: "error",
+                    confirmButtonText: t.errorRetry,
+                    confirmButtonColor: "#3c7fc2",
+                });
                 return;
             }
 
-            // Thông báo thành công
+            form.reset();
+            setTimeout(syncAttendanceOptions, 0);
+
             Swal.fire({
-                title: "Success!",
-                text: "Thank you for your feedback; the information has already been sent to the bride and groom.",
+                title: t.successTitle,
+                text: t.successText,
                 icon: "success",
                 confirmButtonText: "OK",
-                confirmButtonColor: "#000",
+                confirmButtonColor: "#3c7fc2",
             });
         } catch (error) {
             console.error("Error:", error);
 
-            // Thông báo lỗi
             Swal.fire({
-                title: "Lỗi!",
-                text: "OPPS! Something went wrong: " + error.message,
+                title: t.errorTitle,
+                text: error.message || t.errorServer,
                 icon: "error",
-                confirmButtonText: "Try again",
-                confirmButtonColor: "#000",
+                confirmButtonText: t.errorRetry,
+                confirmButtonColor: "#3c7fc2",
             });
         }
-    });
-}
+    }
+
+    function initRSVP() {
+        const form = document.forms["rsvpForm"];
+        if (!form) {
+            return;
+        }
+
+        const confirmGroup = qs('.form-group.confirm', form);
+        const confirmInputs = Array.from(qsa('input[name="confirm"]', form));
+        syncAttendanceOptions = () => {
+            const isAttending = confirmInputs.some((input) => input.checked && input.value === "Yes");
+            toggleAttendanceOptions(isAttending);
+        };
+
+        form.addEventListener("reset", syncAttendanceOptions);
+
+        if (confirmGroup) {
+            confirmGroup.addEventListener("click", (event) => {
+                if (event.target.closest('input[name="confirm"], label[for]')) {
+                    setTimeout(syncAttendanceOptions, 0);
+                }
+            });
+        }
+
+        form.addEventListener("change", (event) => {
+            if (event.target && event.target.name === "confirm") {
+                syncAttendanceOptions();
+            }
+        });
+
+        confirmInputs.forEach((input) => {
+            input.addEventListener("keydown", (event) => {
+                if (event.key === " " || event.key === "Enter") {
+                    setTimeout(syncAttendanceOptions, 0);
+                }
+            });
+        });
+
+        syncAttendanceOptions();
+        form.addEventListener("submit", (e) => handleFormSubmit(e, "en"));
+    }
+
+
+    /* ======================================================
+         BOOTSTRAP
+      ====================================================== */
+
+    function init() {
+        gsap.registerPlugin(ScrollTrigger);
+        initRSVP();
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+})();

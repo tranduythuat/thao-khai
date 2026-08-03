@@ -1080,6 +1080,37 @@ div.hamburger-box.active .bottom {
   color: white;
 }
 
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type="radio"]:disabled+.radio-label {
+  background: #d9d9d9;
+  color: #7a7a7a;
+  border-color: #bfbfbf;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.rsvp .content .rsvp-form .form-group.move.is-disabled .radio-label,
+.rsvp .content .rsvp-form .form-group.stay.is-disabled .radio-label {
+  background: #d9d9d9;
+  color: #7a7a7a;
+  border-color: #bfbfbf;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.rsvp .content .rsvp-form .form-group.move.is-disabled .subtitle,
+.rsvp .content .rsvp-form .form-group.stay.is-disabled .subtitle {
+  color: #8a8a8a;
+}
+
+.rsvp .content .rsvp-form .form-group input:disabled,
+.rsvp .content .rsvp-form .form-group textarea:disabled {
+  background-color: #e6e6e6;
+  color: #7a7a7a;
+  border-color: #c4c4c4;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
 .rsvp .content .rsvp-form .form-group {
   margin-bottom: 4%;
   position: relative;
