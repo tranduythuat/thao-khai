@@ -544,7 +544,7 @@
                     y: 0,
                     rotation: 0,
                     scale: 1,
-                    transformOrigin: "top left",
+                    transformOrigin: "50% 50%",
                     willChange: "transform, opacity"
                 });
 
@@ -553,8 +553,16 @@
                 // (ghi đè transform lẫn nhau). GSAP tự gộp rotation + x/y + scale vào cùng 1 transform.
                 spinTween = gsap.to(icon, { rotation: 360, duration: 2.2, ease: "none", repeat: -1 });
 
-                const dx = endRect.left - startRect.left;
-                const dy = endRect.top - startRect.top;
+                // Tính khoảng cách theo TÂM của icon (không phải góc trên-trái), vì transformOrigin
+                // giờ là center: icon vừa quay (rotation) vừa bay, nếu tính theo góc trên-trái thì
+                // lúc xoay dở dang icon sẽ "lệch quỹ đạo" khỏi điểm neo -> đáp không trúng musicCircle.
+                // Tính theo tâm thì dù đang xoay góc nào, tâm icon vẫn luôn nằm đúng trên đường bay.
+                const startCenterX = startRect.left + startRect.width / 2;
+                const startCenterY = startRect.top + startRect.height / 2;
+                const endCenterX = endRect.left + endRect.width / 2;
+                const endCenterY = endRect.top + endRect.height / 2;
+                const dx = endCenterX - startCenterX;
+                const dy = endCenterY - startCenterY;
                 // Điểm giữa đường cong: uốn lên phía trên để tạo cảm giác "bay" về góc
                 const midX = dx * 0.5 - 30;
                 const midY = dy * 0.5 - 160;
