@@ -40,6 +40,11 @@
         font-size: calc((16 / 500) * 100vw);
     }
 
+    .intro-hint {
+        font-size: calc((22 / 500) * 100vw);
+        letter-spacing: calc((1 / 500) * 100vw);
+    }
+
     .lb-told3 {
         font-size: calc((24 / 500) * 100vw);
     }

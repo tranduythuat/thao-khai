@@ -25,46 +25,61 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- GSAP cho hiệu ứng mở thiệp -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js" defer></script>
 </head>
 
 <body>
+    <!-- Overlay mở thiệp & phát nhạc -->
+    <div id="introOverlay" class="intro-overlay">
+        <div class="intro-overlay-content">
+            <img src="./thiep/anh/cd.png" alt="Music Icon" id="introIcon" class="intro-icon">
+            <p class="intro-hint">Chạm để mở thiệp &amp; <br> phát nhạc 🎵</p>
+        </div>
+    </div>
+
     <div id="loading-container" class="loading-container">
         <div class="spinner"></div>
     </div>
 
+    <!-- Đưa ra ngoài .container-wrapper: box-circle & nav phải LUÔN fixed theo viewport,
+         không được để bên trong bất kỳ phần tử nào có filter/transform (như .intro-blur)
+         vì filter/transform trên ancestor sẽ tạo containing block mới, phá vỡ position:fixed -->
+    <div class="box-circle">
+        <div class="circle" id="musicCircle">
+            <img src="./thiep/anh/cd.png" alt="Music Icon" class="circle-image">
+            <audio id="audio" preload="none"
+                src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/music/B%C3%A8o%20D%E1%BA%A1t%20M%C3%A2y%20Tr%C3%B4i%20nh%C6%B0ng%20l%C3%A0%20giao%20h%C6%B0%E1%BB%9Fng%20%20Vietnamese%20Folk%20Orchestral.mp3"
+                loop></audio>
+        </div>
+        <label for="audio" class="lb-circle">No Music? <br> Click Me</label>
+    </div>
+    <div class="super-container">
+        <div class="slide-container">
+            <div class="stripe toggle-nav js-nav">
+                <div class="hamburger-box">
+                    <div class="bun top"></div>
+                    <div class="meat"></div>
+                    <div class="bun bottom"></div>
+                </div>
+            </div>
+            <div class="nav-wrap">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#wedding-details">Wedding Details</a></li>
+                        </li>
+                        <li><a href="#reception">Reception</a></li>
+                        <li><a href="#rsvp">RSVP</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="container-wrapper">
-            <div class="box-circle">
-                <div class="circle" id="musicCircle">
-                    <img src="./thiep/anh/cd.png" alt="Music Icon" class="circle-image">
-                    <audio id="audio"
-                        src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/music/B%C3%A8o%20D%E1%BA%A1t%20M%C3%A2y%20Tr%C3%B4i%20nh%C6%B0ng%20l%C3%A0%20giao%20h%C6%B0%E1%BB%9Fng%20%20Vietnamese%20Folk%20Orchestral.mp3"
-                        loop></audio>
-                </div>
-                <label for="audio" class="lb-circle">No Music? <br> Click Me</label>
-            </div>
-            <div class="super-container">
-                <div class="slide-container">
-                    <div class="stripe toggle-nav js-nav">
-                        <div class="hamburger-box">
-                            <div class="bun top"></div>
-                            <div class="meat"></div>
-                            <div class="bun bottom"></div>
-                        </div>
-                    </div>
-                    <div class="nav-wrap">
-                        <nav class="menu">
-                            <ul>
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#wedding-details">Wedding Details</a></li>
-                                </li>
-                                <li><a href="#reception">Reception</a></li>
-                                <li><a href="#rsvp">RSVP</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+        <div class="container-wrapper intro-blur">
             <div id="home">
                 <div class="name">
                     <label for="" class="lb-top">LỄ THỀ NGUYỆN (THE VOW CEREMONY OF)</label>
@@ -454,9 +469,136 @@
                 audio.pause(); // Dừng nhạc nếu đang phát
                 musicCircle.classList.remove("spin"); // Dừng xoay
             }
+
+            // Đóng menu (nếu đang mở) khi khách bấm vào đĩa nhạc
+            $('.hamburger-box').removeClass("active");
+            $('.js-nav').parent().find('.menu').removeClass('active');
         });
     </script>
     <script src="./thiep/thiep.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.getElementById("introOverlay");
+            const icon = document.getElementById("introIcon");
+            const hint = document.querySelector(".intro-hint");
+            const wrapper = document.querySelector(".container-wrapper");
+            const audio = document.getElementById("audio");
+            const musicCircle = document.getElementById("musicCircle");
+
+            if (!overlay || !icon || !audio || !musicCircle) return;
+
+            // Khoá nút hamburger/menu trong lúc overlay mở thiệp còn hiển thị
+            // (tránh xung đột z-index với .slide-container / .menu)
+            document.body.classList.add("intro-open");
+
+            const hasGsap = typeof gsap !== "undefined" && typeof MotionPathPlugin !== "undefined";
+            if (hasGsap) {
+                gsap.registerPlugin(MotionPathPlugin);
+            }
+
+            let spinTween = null;
+
+            function closeOverlay() {
+                if (spinTween) spinTween.kill();
+                overlay.remove();
+                musicCircle.classList.add("spin");
+                document.body.classList.remove("intro-open");
+            }
+
+            function openInvitation() {
+                overlay.removeEventListener("click", openInvitation);
+                overlay.classList.add("intro-overlay--animating");
+
+                // 1) Phát nhạc nền ngay khi khách chạm vào icon
+                audio.play().catch(function () { });
+
+                if (!hasGsap) {
+                    // Fallback mượt bằng CSS thuần nếu GSAP chưa tải được (vd. mất mạng CDN)
+                    icon.classList.add("is-spinning");
+                    overlay.style.transition = "opacity .5s ease";
+                    overlay.style.opacity = "0";
+                    if (wrapper) wrapper.classList.remove("intro-blur");
+                    setTimeout(closeOverlay, 500);
+                    return;
+                }
+
+                // Tắt CSS animation (introPulse) trên icon trước khi đo kích thước:
+                // từ giờ GSAP toàn quyền điều khiển "transform"
+                icon.classList.add("is-flying");
+
+                // Lấy toạ độ & kích thước icon lớn (điểm xuất phát) và icon nhỏ ở góc màn hình (điểm đến)
+                const startRect = icon.getBoundingClientRect();
+                const endRect = musicCircle.getBoundingClientRect();
+                const scaleTo = endRect.width / startRect.width;
+
+                // "Đóng băng" icon đúng tại vị trí/kích thước hiện tại, đưa ra khỏi
+                // luồng flex để bay tự do bằng transform (không đụng width/height -> đỡ reflow, mượt hơn)
+                gsap.set(icon, {
+                    position: "fixed",
+                    left: startRect.left,
+                    top: startRect.top,
+                    width: startRect.width,
+                    height: startRect.height,
+                    margin: 0,
+                    x: 0,
+                    y: 0,
+                    rotation: 0,
+                    scale: 1,
+                    transformOrigin: "top left",
+                    willChange: "transform, opacity"
+                });
+
+                // 2) Icon quay liên tục — dùng GSAP (không dùng CSS @keyframes) vì animation bay/scale
+                // bên dưới cũng điều khiển "transform"; để CSS animation xoay chạy song song sẽ đá nhau
+                // (ghi đè transform lẫn nhau). GSAP tự gộp rotation + x/y + scale vào cùng 1 transform.
+                spinTween = gsap.to(icon, { rotation: 360, duration: 2.2, ease: "none", repeat: -1 });
+
+                const dx = endRect.left - startRect.left;
+                const dy = endRect.top - startRect.top;
+                // Điểm giữa đường cong: uốn lên phía trên để tạo cảm giác "bay" về góc
+                const midX = dx * 0.5 - 30;
+                const midY = dy * 0.5 - 160;
+
+                const tl = gsap.timeline({
+                    defaults: { ease: "power2.inOut" },
+                    onComplete: closeOverlay
+                });
+
+                // Icon bay theo đường cong về góc màn hình & thu nhỏ dần (chỉ dùng transform: GPU-accelerated)
+                tl.to(icon, {
+                    motionPath: {
+                        path: [
+                            { x: 0, y: 0 },
+                            { x: midX, y: midY },
+                            { x: dx, y: dy }
+                        ],
+                        curviness: 1.25
+                    },
+                    scale: scaleTo,
+                    duration: 1.3
+                }, 0);
+
+                // Nội dung thiệp phía sau hiện rõ dần, overlay mờ dần & biến mất
+                if (hint) {
+                    tl.to(hint, { autoAlpha: 0, y: 10, duration: 0.35 }, 0);
+                }
+                if (wrapper) {
+                    tl.to(wrapper, { filter: "blur(0px) brightness(1)", duration: 1.1 }, 0.15);
+                    tl.add(function () { wrapper.classList.remove("intro-blur"); }, 1.25);
+                }
+                tl.to(overlay, {
+                    backgroundColor: "rgba(10,8,6,0)",
+                    backdropFilter: "blur(0px)",
+                    duration: 1.1
+                }, 0.15);
+                tl.to(icon, { autoAlpha: 0, duration: 0.25 }, "-=0.15");
+            }
+
+            // Nếu người dùng xoay màn hình / đổi cỡ cửa sổ trước khi bấm mở thiệp,
+            // đích đến (vị trí icon nhỏ) sẽ được tính lại ngay tại thời điểm click nên luôn chính xác.
+            overlay.addEventListener("click", openInvitation);
+        });
+    </script>
 </body>
 
 </html>

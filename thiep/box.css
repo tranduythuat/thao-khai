@@ -56,6 +56,106 @@
 }
 
 
+/* ===================== INTRO OVERLAY - MỞ THIỆP & PHÁT NHẠC ===================== */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  /* Phải cao hơn .slide-container (12000) và .menu (12001)
+     để nút hamburger/menu không lọt lên trên overlay mở thiệp */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: rgba(253, 235, 216, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.intro-overlay.intro-overlay--animating {
+  pointer-events: none;
+}
+
+.intro-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.intro-icon {
+  width: 200px;
+  max-width: 42vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  animation: introPulse 1.8s ease-in-out infinite;
+}
+
+.intro-icon.is-spinning {
+  animation: spin 2.2s linear infinite;
+}
+
+/* Khi GSAP tiếp quản animation (bay theo đường cong), tắt hẳn CSS animation
+   để tránh việc CSS ghi đè "transform" và đá nhau với GSAP mỗi frame */
+.intro-icon.is-flying {
+  animation: none;
+}
+
+@keyframes introPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.intro-hint {
+  margin: 0;
+  color: #000000;
+  font-family: var(--font-ftv);
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  animation: introHintBlink 1.6s ease-in-out infinite;
+}
+
+@keyframes introHintBlink {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Nội dung thiệp phía sau overlay: mờ/tối nhẹ trước khi mở */
+.container-wrapper.intro-blur {
+  filter: blur(6px) brightness(0.7);
+  transition: filter 1.1s ease;
+}
+
+/* Khi overlay mở thiệp còn đang hiển thị: khoá hẳn nút hamburger/menu
+   để tránh xung đột z-index với .slide-container (12000) / .menu (12001) */
+body.intro-open .slide-container,
+body.intro-open .toggle-nav,
+body.intro-open .hamburger-box,
+body.intro-open .menu {
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
 /* Đảm bảo box-circle luôn cố định và không ảnh hưởng đến nội dung trang */
 .box-circle {
   position: fixed;
